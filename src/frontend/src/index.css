@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* AUC Green Theme - OKLCH tokens */
+    --radius: 0.75rem;
+
+    /* Primary dark green: #0B6B3A → oklch(0.42 0.14 152) */
+    --background: 0.97 0.01 140;
+    --foreground: 0.18 0.04 160;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.04 160;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.04 160;
+
+    /* Primary = dark green #0B6B3A */
+    --primary: 0.42 0.14 152;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary = light mint #EAF6EE */
+    --secondary: 0.95 0.025 148;
+    --secondary-foreground: 0.42 0.14 152;
+
+    --muted: 0.94 0.015 148;
+    --muted-foreground: 0.5 0.04 152;
+
+    /* Accent = medium green #1F8A4C */
+    --accent: 0.53 0.14 152;
+    --accent-foreground: 0.99 0 0;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.03 148;
+    --input: 0.9 0.025 148;
+    --ring: 0.42 0.14 152;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.42 0.14 152;
+    --sidebar-foreground: 0.99 0 0;
+    --sidebar-primary: 0.99 0 0;
+    --sidebar-primary-foreground: 0.42 0.14 152;
+    --sidebar-accent: 0.35 0.12 152;
+    --sidebar-accent-foreground: 0.99 0 0;
+    --sidebar-border: 0.35 0.12 152;
+    --sidebar-ring: 0.99 0 0;
+  }
+
+  .dark {
+    --background: 0.18 0.04 160;
+    --foreground: 0.95 0.01 148;
+    --card: 0.22 0.05 155;
+    --card-foreground: 0.95 0.01 148;
+    --popover: 0.22 0.05 155;
+    --popover-foreground: 0.95 0.01 148;
+    --primary: 0.55 0.15 152;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.28 0.06 152;
+    --secondary-foreground: 0.95 0.01 148;
+    --muted: 0.28 0.06 152;
+    --muted-foreground: 0.65 0.04 152;
+    --accent: 0.53 0.14 152;
+    --accent-foreground: 0.99 0 0;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.55 0.15 152;
+    --chart-1: 0.488 0.243 264.376;
+    --chart-2: 0.696 0.17 162.48;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+    --sidebar: 0.22 0.05 155;
+    --sidebar-foreground: 0.95 0.01 148;
+    --sidebar-primary: 0.55 0.15 152;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.28 0.06 152;
+    --sidebar-accent-foreground: 0.95 0.01 148;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.55 0.15 152;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", "General Sans", sans-serif;
+  }
+}
+
+@layer utilities {
+  .auc-dark-green {
+    background-color: #0b6b3a;
+  }
+  .auc-mid-green {
+    background-color: #1f8a4c;
+  }
+  .auc-mint {
+    background-color: #eaf6ee;
+  }
+  .text-auc-dark-green {
+    color: #0b6b3a;
+  }
+  .border-auc-green {
+    border-color: #0b6b3a;
+  }
+  .gradient-green {
+    background: linear-gradient(135deg, #0b6b3a 0%, #0a5a33 100%);
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(11, 107, 58, 0.75) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+
+  /* Typing animation */
+  @keyframes typing-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes typing-fade-out {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+  .typing-in {
+    animation: typing-fade-in 0.4s ease forwards;
+  }
+  .typing-out {
+    animation: typing-fade-out 0.4s ease forwards;
+  }
+
+  /* Hamburger unique lines */
+  .hamburger-line-1 {
+    width: 2rem;
+    height: 3px;
+  }
+  .hamburger-line-2 {
+    width: 1.25rem;
+    height: 1.5px;
+  }
+  .hamburger-line-3 {
+    width: 1.75rem;
+    height: 2px;
+  }
+
+  /* Card hover */
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(11, 107, 58, 0.18);
+  }
+
+  /* Section fade in */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  /* Pulse badge */
+  @keyframes float-badge {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  .float-badge {
+    animation: float-badge 3s ease-in-out infinite;
+  }
+
+  /* PWA install banner */
+  .pwa-banner {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #0b6b3a;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* ID Card styles */
+  .id-card {
+    background: linear-gradient(135deg, #0b6b3a 0%, #1f8a4c 60%, #2f9a5a 100%);
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+    overflow: hidden;
+    width: 340px;
+    min-height: 200px;
+  }
+
+  /* Certificate styles */
+  .certificate {
+    background: #fffef7;
+    border: 3px solid #0b6b3a;
+    border-radius: 8px;
+    padding: 2rem;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+  }
+
+  /* Sidebar */
+  .admin-sidebar {
+    background: #0b6b3a;
+    min-height: 100vh;
+  }
+
+  /* Stats number */
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    .print-full {
+      width: 100% !important;
+    }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f8a4c;
+    border-radius: 3px;
+  }
+
+  /* Mobile nav overlay */
+  .mobile-nav-overlay {
+    background: rgba(11, 107, 58, 0.97);
+    backdrop-filter: blur(4px);
+  }
+}
